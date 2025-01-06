@@ -1,0 +1,11 @@
+Cyberbezpieczeństwo 1. 
+
+Zad1.1
+openssl enc -aes-128-ecb -in plik.txt -out plik.enc -K <klucz o odpowiedniej dla algorytmu długości>
+
+po dodaniu -a, szyfrogram będzie mieć postać znaków drukowalnych (base64)
+
+openssl rand -hex 16 <- generowanie 16znakowego hexadecymalnego ciągu znaków jako klucz do powyższego polecenia
+
+Zad1.2
+Wycinanie danych do drugiego pliku: 
