@@ -1,4 +1,5 @@
 ## Problem z podmanem (wymiana na Dockera)
+<<<<<<< HEAD
 
 https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-foolproof-installation-guide-5d8e9cd9e159
 
@@ -61,3 +62,10 @@ https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-f
 - Ustawiamy dane (np. a: a: a: a) i uruchamiamy instalację. Kontener o dziwo nie padł. 
 
 - Przygotowujemy podatny plik z kodem .js. 
+=======
+https://medium.com/@nocerainfosec/docker-on-parrot-os-security-5-3-a-fresh-and-foolproof-installation-guide-5d8e9cd9e159
+
+## Podniesienie kontenera z docker-compose podanym w pliku
+`docker compose -f <nazwa_pliku_z_docker_compose>.yml up`
+
+>>>>>>> 7b65589887a844404edc0e1b1e7608e66c83335e
