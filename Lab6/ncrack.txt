@@ -1,1 +1,0 @@
-Discovered credentials on http://127.0.0.1:1104 '1qaz2wsx' '1234567890'

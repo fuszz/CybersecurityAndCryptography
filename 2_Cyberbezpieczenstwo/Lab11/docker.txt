@@ -1,0 +1,4 @@
+docker pull mazurkatarzyna/bsk-book-p1-ch5
+
+docker run -it -p 5001:5001 -p 5003:5003 -p 5004:5004 mazurkatarzyna/bsk-book-p1-ch5
+

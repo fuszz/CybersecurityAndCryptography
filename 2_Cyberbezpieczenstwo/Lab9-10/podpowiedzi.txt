@@ -1,0 +1,42 @@
+ZAD1 
+--------------
+docker run -dp 10001:80 mazurkatarzyna/cik-book-p1-ch10-ex1
+jaka funkcja w php jest w stanie wykonać zewnętrzny program?
+
+
+ZAD2 
+--------------
+docker run -dp 10002:80 mazurkatarzyna/cik-book-p1-ch10-ex2
+wykorzystaj narzędzie exiftool
+zastanów się nad rozszerzeniem pliku
+
+
+ZAD3 
+--------------
+docker run -dp 10003:80 mazurkatarzyna/cik-book-p1-ch10-ex3
+czym są magic numbers?
+możesz wykorzystać xxd lub hexedit
+
+
+ZAD4
+--------------
+docker compose -f docker-compose-cve-2023-4195.yml up
+http://127.0.0.1:4195/install/
+php rce payload
+
+
+ZAD5
+--------------
+docker run -dp 42013:80 mazurkatarzyna/cve-2021-42013
+path traversal payload
+
+
+ZAD6
+--------------
+docker run --network=host mazurkatarzyna/cve-2019-1003000:latest
+groovy script rce payload
+
+
+ZAD7
+--------------
+

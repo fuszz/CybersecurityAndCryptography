@@ -1,0 +1,2 @@
+login:      maltego.umcs@wp.pl
+pass:       WSH866tbB3glyXh

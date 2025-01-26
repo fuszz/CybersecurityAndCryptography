@@ -1,0 +1,42 @@
+services:
+  web:
+    image: mazurkatarzyna/cve-2023-5060:latest
+    hostname: librenms
+    container_name: librenms
+    ports:
+      - "9097:80"
+    volumes:
+      - ./docker-persistence/logs:/opt/librenms/logs
+      - ./docker-persistence/rrd:/opt/librenms/rrd
+    environment:
+      - APP_KEY=base64:7cVDlhFEZ1dyxIuP38Yy72YuXrcGg1ISwAwZ2dKt4Pk=
+      - DB_HOST=db
+      - DB_NAME=librenms
+      - DB_USER=librenms
+      - DB_PASS=librenms
+      - POLLERS=16
+      - BASE_URL=http://localhost
+      - DAILY_ON_STARTUP=true
+    links:
+      - mysql:db
+    depends_on:
+      mysql:
+        condition: service_healthy
+  mysql:
+    image: mazurkatarzyna/cve-2023-5060-mysql80:latest
+    command: --sql-mode=""
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker-persistence/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=librenms
+      - MYSQL_PASSWORD=librenms
+      - MYSQL_DATABASE=librenms
+    healthcheck:
+      test: "mysql -h localhost -u root -p$$MYSQL_ROOT_PASSWORD -e 'USE librenms'"
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
